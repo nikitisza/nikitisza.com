@@ -1,0 +1,22 @@
+---
+// Markup copied from the old site's newsletter template. It used one fixed title and description
+// for every issue, and this template has no footer.
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export const getStaticPaths = async () =>
+  (await getCollection('newsletter-archive')).map((issue) => ({ params: { slug: issue.id }, props: { issue } }));
+
+const { issue } = Astro.props;
+const { Content } = await render(issue);
+
+const TITLE = 'Hirlevel - Design Newsletter Archive';
+const DESCRIPTION =
+  'Hirlevel aka Newsletter archive for nikitisza.com about UX design, UI design, product design, graphic design, design career, tech, productivity, self-development, and solopreneurship.';
+---
+
+<Layout title={TITLE} description={DESCRIPTION} footer={false}>
+  <div><div class="container-11 w-container"><h2 class="newsletter-page-title">{issue.data.title}</h2></div></div>
+  <div class="section-16"><div class="container-7 w-container"></div></div>
+  <div class="section-17"><div class="container-10 w-container"><div class="hirlevel-rich-text w-richtext"><Content /></div></div></div>
+</Layout>

@@ -1,0 +1,19 @@
+---
+// The hand-built pages: one HTML file plus one JSON file per page in src/fragments/.
+// The /writing and /newsletter-archive list pages have their own routes (their lists come from content).
+import Layout from '../layouts/Layout.astro';
+
+const html = import.meta.glob<string>('../fragments/*.html', { query: '?raw', import: 'default', eager: true });
+const meta = import.meta.glob<Record<string, any>>('../fragments/*.json', { import: 'default', eager: true });
+
+// getStaticPaths is hoisted out of the component, so the page list has to live inside it.
+export const getStaticPaths = () =>
+  ['home', 'about', 'services', 'resources', 'sketchnotes'].map((name) => ({ params: { page: name === 'home' ? undefined : name }, props: { name } }));
+
+const { name } = Astro.props;
+const page = meta[`../fragments/${name}.json`];
+---
+
+<Layout title={page.title} description={page.description} bodyClass={page.bodyClass} footer={page.footer}>
+  <Fragment set:html={html[`../fragments/${name}.html`]} />
+</Layout>

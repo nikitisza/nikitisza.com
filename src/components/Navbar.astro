@@ -1,0 +1,30 @@
+---
+// The site navbar. Class names and data-* settings match the site CSS and ../scripts/nav.ts.
+// Like the old site, only the link for exactly this path is current (none on posts and issues).
+const LINKS = [
+  { href: '/', label: 'home' },
+  { href: '/about', label: 'About' },
+  { href: '/resources', label: 'resources' },
+  { href: '/sketchnotes', label: 'sketchnotes' },
+  { href: '/writing', label: 'writing' },
+];
+
+const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '') || '/';
+const current = (href: string) => (href === path ? { 'aria-current': 'page' as const } : {});
+const currentClass = (href: string) => (href === path ? 'w--current' : undefined);
+---
+
+<div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
+  <div class="container w-container">
+    <a href="/" {...current('/')} class:list={['brand w-nav-brand', currentClass('/')]} aria-label="home">
+      <img src="/images/pages/6095d9f1552ac2592da54fd1_logo-final-01.svg" loading="lazy" height="60" alt="niki tisza logo" class="image-6" />
+    </a>
+    <nav role="navigation" class="nav-menu w-nav-menu">
+      {LINKS.map(({ href, label }) => <a href={href} {...current(href)} class:list={['nav-link w-nav-link', currentClass(href)]}>{label}</a>)}
+    </nav>
+    <div class="menu-button w-nav-button" role="button" tabindex="0" aria-label="menu" aria-haspopup="menu" aria-controls="nav-overlay" aria-expanded="false">
+      <div class="w-icon-nav-menu"></div>
+    </div>
+  </div>
+  <div class="w-nav-overlay" id="nav-overlay"></div>
+</div>

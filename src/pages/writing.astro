@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import page from '../fragments/writing.json';
+import { listedInOrder } from '../lib/listing';
+
+// Orders 1-100 match the old site; 101 and up are older posts it hid, added back A-Z.
+const posts = await listedInOrder('writing');
+---
+
+<Layout title={page.title} description={page.description} bodyClass={page.bodyClass} footer={page.footer}>
+  <div class="section-13"><div class="w-container"><h1 class="page-name-heading">Writing</h1></div></div>
+  <div class="section-9">
+    <div class="w-container">
+      <p class="page-description">
+        I'm interested in writing about UX &amp; UI design, design career, solopreneurship, side projects, productivity, and self-development. Take a look at some of my recent articles.
+      </p>
+    </div>
+  </div>
+  <div class="section-10">
+    <div class="w-container">
+      <div class="w-dyn-list">
+        <div role="list" class="collection-list w-dyn-items">
+          {posts.map((post) => (
+            <div role="listitem" class="collection-item-2 w-dyn-item">
+              <h3 class="heading-7">{post.data.title}</h3>
+              <div class={post.data.summary ? 'text-block-5' : 'text-block-5 w-dyn-bind-empty'}>{post.data.summary}</div>
+              <a href={`/writing/${post.id}`} class="link">Read article</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+.claude/settings.local.json
+
+# A global gitignore may hide these; this repo tracks them.
+!.claude/
+!.github/
+!CLAUDE.md

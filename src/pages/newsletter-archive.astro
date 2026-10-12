@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import page from '../fragments/newsletter-archive.json';
+import { listedInOrder } from '../lib/listing';
+
+const issues = await listedInOrder('newsletter-archive');
+
+// "May 21, 2024", as the old site showed it. Dates are calendar days, so format in UTC.
+const formatDate = (date?: Date) =>
+  date?.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+---
+
+<Layout title={page.title} description={page.description} bodyClass={page.bodyClass} footer={page.footer}>
+  <div class="section-13"><div class="w-container"><h1 class="page-name-heading">Newsletter archive</h1></div></div>
+  <div class="section-9">
+    <div class="w-container">
+      <p class="page-description">Take a look what my monthly newsletters are about. Hope to see you in the club soon!</p>
+    </div>
+  </div>
+  <div class="section-10">
+    <div class="w-container">
+      <div class="w-dyn-list">
+        <div role="list" class="w-dyn-items">
+          {issues.map((issue) => (
+            <div role="listitem" class="w-dyn-item">
+              <h3 class="heading-7">{issue.data.title}</h3>
+              <div class="text-block-5">{formatDate(issue.data.date)}</div>
+              <a href={`/newsletter-archive/${issue.id}`} target="_blank" class="link">Read more</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

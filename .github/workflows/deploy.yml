@@ -1,0 +1,46 @@
+# Build the site on every push to main and publish the result to the gh-pages branch.
+# GitHub Pages serves that branch (Settings > Pages > Deploy from a branch > gh-pages, / (root)).
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Two pushes in a row: let the running deploy finish, then deploy only the latest.
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with:
+          version: latest
+      - uses: actions/setup-node@v7
+        with:
+          node-version: latest
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+
+      # Every URL of the old site must still answer 200 before anything is published.
+      - name: Check old URLs
+        run: |
+          pnpm preview --port 4321 &
+          for i in $(seq 30); do curl -sf http://localhost:4321/ > /dev/null && break; sleep 1; done
+          pnpm check-urls
+
+      # One commit on gh-pages, replaced on each deploy: the 100+ MB of images would otherwise pile up in history.
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          force_orphan: true

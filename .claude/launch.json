@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "mise",
+      "runtimeArgs": ["exec", "--", "pnpm", "dev"],
+      "port": 4321,
+      "autoPort": false
+    },
+    {
+      "name": "dev-2",
+      "runtimeExecutable": "mise",
+      "runtimeArgs": ["exec", "--", "pnpm", "dev", "--port", "4322", "--ignore-lock"],
+      "port": 4322,
+      "autoPort": false
+    }
+  ]
+}
