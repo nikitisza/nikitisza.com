@@ -1,20 +1,48 @@
 ---
-// Markup copied from the old site's writing template, so the site CSS applies.
+// Playground article page (new design). The Markdown body is unchanged; .article in new-design.css styles it,
+// including the old-site figure markup (images and YouTube embeds).
 import { getCollection, render } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import { writingTitle } from '../../lib/listing';
+import NewLayout from '../../layouts/NewLayout.astro';
+import { listedInOrder, writingTitle } from '../../lib/listing';
+import { shortDate, readMinutes } from '../../lib/links';
 
 export const getStaticPaths = async () =>
   (await getCollection('writing')).map((post) => ({ params: { slug: post.id }, props: { post } }));
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const { title, summary } = post.data;
+const { title, summary, date } = post.data;
+
+// "Keep reading": the next three posts in the Writing list (wrapping round to the newest).
+const listed = await listedInOrder('writing');
+const at = listed.findIndex((p) => p.id === post.id);
+const next = [1, 2, 3].map((n) => listed[(Math.max(at, 0) + n) % listed.length]).filter((p) => p.id !== post.id);
 ---
 
-<Layout title={writingTitle(title)} description={summary} footer rss>
-  <div class="section-8"><div class="container-5 w-container"><h1 class="blog-page-title">{title}</h1></div></div>
-  <div><div class="w-container"><p class={summary ? 'blog-post-summary' : 'blog-post-summary w-dyn-bind-empty'}>{summary}</p></div></div>
-  <div class="section-11"><div class="container-7 w-container"></div></div>
-  <div><div class="container-6 w-container"><div class="blog-body-content w-richtext"><Content /></div></div></div>
-</Layout>
+<NewLayout title={writingTitle(title)} description={summary} rss>
+  <header class="article-head">
+    <a class="textlink back" href="/writing">← All writing</a>
+    <p class="eyebrow">{date ? `${shortDate(date)} · ` : ''}{readMinutes(post.body)} min read</p>
+    <h1>{title}</h1>
+    {summary && <p class="lede">{summary}</p>}
+    <svg class="squiggle" viewBox="0 0 560 12" preserveAspectRatio="none" aria-hidden="true"><path d="M0 6 Q 10 0 20 6 T 40 6 T 60 6 T 80 6 T 100 6 T 120 6 T 140 6 T 160 6 T 180 6 T 200 6 T 220 6 T 240 6 T 260 6 T 280 6 T 300 6 T 320 6 T 340 6 T 360 6 T 380 6 T 400 6 T 420 6 T 440 6 T 460 6 T 480 6 T 500 6 T 520 6 T 540 6 T 560 6" fill="none" stroke="#e0563b" stroke-width="2.5"></path></svg>
+  </header>
+
+  <article class="article">
+    <Content />
+  </article>
+
+  <section class="section">
+    <h2 class="center">Keep <em>reading</em></h2>
+    <div class="cards">
+      {next.map((p) => (
+        <a class="card" href={`/writing/${p.id}`}>
+          <span class="kicker">{p.data.date ? `${shortDate(p.data.date)} · ` : ''}{readMinutes(p.body)} min</span>
+          <h3>{p.data.title}</h3>
+          {p.data.summary && <p>{p.data.summary}</p>}
+        </a>
+      ))}
+    </div>
+    <p class="more"><a class="textlink" href="/writing">All writing →</a></p>
+  </section>
+</NewLayout>
