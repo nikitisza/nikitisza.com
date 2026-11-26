@@ -121,6 +121,22 @@ a.card:hover, a.tile:hover { transform: translate(-3px, -3px); box-shadow: 5px 5
 .btn.ghost.light { color: var(--paper); border-color: var(--paper); }
 .btn.ghost.light:hover { background: var(--paper); color: var(--ink); }
 
+/* Services */
+.values { grid-template-columns: repeat(5, 1fr); }
+.values .tile { gap: 8px; }
+.services { display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px; }
+.service { grid-column: span 2; background: var(--card); border: 1.5px solid var(--ink); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 8px; }
+.service:nth-child(4), .service:nth-child(5) { grid-column: span 3; }
+.service img { width: 96px; height: 96px; margin: -8px 0 4px -8px; }
+.service h3 { font: 800 21px/1.2 var(--sans); letter-spacing: -0.01em; margin: 0; }
+.service p { margin: 0; font-size: 15px; color: #4b4b53; }
+.eyebrow.light { color: #cfcac0; }
+.clients { width: 100%; max-width: 1000px; height: auto; margin: 8px auto 0; opacity: 0.95; }
+.talk { max-width: 680px; margin: 0 auto; text-align: center; }
+.talk .hand { color: var(--tomato); display: block; transform: rotate(-3deg); margin-bottom: 10px; }
+.talk h2 { margin-bottom: 16px; }
+.talk p { font-size: 18px; margin: 0 0 26px; }
+
 /* Long text */
 .prose { max-width: 680px; margin: 0 auto; font-size: 18px; line-height: 1.65; }
 .prose h2 { font-size: clamp(26px, 3vw, 34px); margin: 56px 0 18px; }
@@ -173,7 +189,7 @@ a.card:hover, a.tile:hover { transform: translate(-3px, -3px); box-shadow: 5px 5
 .foot a:hover { color: var(--paper); }
 
 
-@media (max-width: 1100px) { .products, .free-row { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 1100px) { .products, .free-row { grid-template-columns: 1fr 1fr; } .values { grid-template-columns: repeat(3, 1fr); } }
 
 @media (max-width: 860px) {
   .hero, .page-hero.split { grid-template-columns: 1fr; }
@@ -182,7 +198,8 @@ a.card:hover, a.tile:hover { transform: translate(-3px, -3px); box-shadow: 5px 5
   .stats { grid-template-columns: 1fr 1fr; gap: 18px 0; }
   .stats div:nth-child(3) { border-left: 0; }
   .cards, .videos { grid-template-columns: 1fr; }
-  .products, .free-row { grid-template-columns: 1fr; }
+  .products, .free-row, .values, .services { grid-template-columns: 1fr; }
+  .service, .service:nth-child(4), .service:nth-child(5) { grid-column: auto; }
   .product img { width: 96px; height: 96px; }
   .newsletter .inner { grid-template-columns: 1fr; }
   .topbar .msg { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

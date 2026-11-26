@@ -1,0 +1,76 @@
+---
+// Playground Services page (new design). Text from src/fragments/services.html; icons are recoloured copies
+// in public/images/pages/services/ (the originals stay for the old pages).
+import NewLayout from '../layouts/NewLayout.astro';
+import page from '../fragments/services.json';
+
+const MAIL = 'mailto:niki.tisza.design@gmail.com?subject=Enquiring%20-%20UX%20design%20professional%20services';
+const values = [
+  { name: 'Collaboration', text: 'Working in a pragmatic and open manner' },
+  { name: 'Reality', text: 'Anchoring my work in the reality of the humans I design for' },
+  { name: 'Creativity', text: 'Ambition, innovation, and experimentation' },
+  { name: 'Honesty', text: 'Receiving & giving feedback to move projects forward' },
+  { name: 'Efficiency', text: 'A lean no-nonsense approach' },
+];
+const services = [
+  { icon: 'design-research', title: 'Design research', text: 'Find out what your customers want and what your business needs. Create customer journey, service blueprint, and personas.' },
+  { icon: 'ux-design', title: 'UX design', text: 'Create information architecture, task and user flow. Create wireframes and define the optimal functionality for your product.' },
+  { icon: 'visual-design', title: 'Visual design', text: "Create an aesthetically pleasing user experience through your product's visual language and brand guideline." },
+  { icon: 'usability-testing', title: 'Usability testing', text: 'Create and test prototypes or products with potential and real customers to make sure the user experience is smooth, and people want to use your product.' },
+  { icon: 'development-handoff', title: 'Development handoff', text: 'Collaborate with developers throughout the entire project to create a scalable, pixel perfect product that works and looks great.' },
+];
+---
+
+<NewLayout title={page.title} description={page.description}>
+  <header class="page-hero">
+    <p class="eyebrow">Services</p>
+    <h1>How I can <em>help</em></h1>
+    <p class="lede">I've been using human-centred design to create successful apps, websites, services, interfaces in the last decade.</p>
+    <div class="cta">
+      <a class="btn" href={MAIL}>Book a free 30-minute chat</a>
+      <a class="textlink" href="#services">or see what I do</a>
+    </div>
+  </header>
+
+  <section class="section tight">
+    <h2>What I <em>value</em></h2>
+    <div class="tiles values">
+      {values.map((value, i) => (
+        <div class="tile">
+          <span class="num">{i + 1}.</span>
+          <h3>{value.name}</h3>
+          <p>{value.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section tight" id="services">
+    <h2>What I <em>do</em></h2>
+    <div class="services">
+      {services.map((service) => (
+        <div class="service">
+          <img src={`/images/pages/services/${service.icon}.svg`} width="500" height="500" loading="lazy" alt="" />
+          <h3>{service.title}</h3>
+          <p>{service.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="section">
+      <p class="eyebrow light center">Teams I've worked with</p>
+      <img class="clients" src="/images/pages/6201bc5d6c2a474bdf699c73_frame-22.png" width="2069" height="149" alt="Logos of companies Niki has worked with" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="talk">
+      <span class="hand" aria-hidden="true">let's talk ↓</span>
+      <h2>A free 30-minute <em>chat</em></h2>
+      <p>I also have a direct but respectful communication style. I'd recommend to message me for a free 30 minutes chat or video call to see if it works for you.</p>
+      <a class="btn" href={MAIL}>Message me</a>
+    </div>
+  </section>
+</NewLayout>
