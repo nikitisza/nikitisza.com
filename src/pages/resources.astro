@@ -1,59 +1,88 @@
 ---
-// Playground Resources page (new design). Text from src/fragments/resources.html; the "Tools I built" tiles
-// reuse the Gumroad links Niki already shares on the About page and in her posts.
+// Playground Resources page (new design): the free things first, then the Gumroad shop with Niki's product thumbnails
+// (saved from her shop into public/images/pages/gumroad/). Product names match Gumroad.
 import NewLayout from '../layouts/NewLayout.astro';
 import page from '../fragments/resources.json';
+import { YOUTUBE, NEWSLETTER } from '../lib/links';
 
-const tools = [
-  { title: 'Job application tracker', text: 'Keep every application, contact and follow-up in one place.', href: 'https://nikitisza.gumroad.com/l/jobapptracker' },
-  { title: 'Resume writing kit', text: 'Templates and guidance for a resume that gets read.', href: 'https://nikitisza.gumroad.com/l/resumewritingkit' },
-  { title: 'UX Design Book', text: 'What I wish I knew before starting in UX design.', href: 'https://nikitisza.gumroad.com/l/what_I_wish_I_knew_before_starting_in_UX_design' },
-  { title: 'Sketching for UX', text: 'Get comfortable drawing ideas, flows and screens.', href: 'https://nikitisza.gumroad.com/l/sketchingforux' },
+const SHOP = 'https://nikitisza.gumroad.com/';
+const NOTION = 'https://www.notion.so/c107bf43da404219804a8f090a23cb95?v=b81fb430bd494ce5b3b3b8288b8b7b17';
+const products = [
+  { slug: 'jobapptracker', img: 'job-application-tracker', title: 'Job Application Tracker (Google Sheet)', text: 'The spreadsheet system I used to stay organised through my own tech job hunt.' },
+  { slug: 'resumewritingkit', img: 'resume-writing-kit', title: 'Resume Writing Kit - Beat the Robots!', text: 'The kit that landed me interviews at Amazon, Oracle, PwC and more.' },
+  { slug: '90-day-plan', img: 'new-job-90-day-plan', title: 'New Design Job Survival Guide - 90-Day Plan', text: 'Onboard to a new product and company with a clear plan for your first 90 days.' },
+  { slug: 'design-handoff-checklist', img: 'handoff-checklist', title: 'Handoff Checklist for Product Designers (When You Leave a Job)', text: 'Leave your job like a pro, without burning bridges or dropping balls.' },
+  { slug: 'UX-quiz', img: 'ux-career-self-assessment', title: 'UX Career Self-assessment', text: 'Not sure UX design is the right job for you? This quiz helps you decide.' },
+  { slug: 'what_I_wish_I_knew_before_starting_in_UX_design', img: 'ux-design-book', title: 'What I wish I knew before starting in UX design', text: 'The book I wish I had when I started out in UX.' },
+  { slug: 'sketchingforux', img: 'sketching-for-ux', title: 'Sketching for UX — a practical guide & work booklet', text: 'Learn to sketch ideas, flows and screens, with exercises to practise.' },
+  { slug: 'prod-design-lib', img: 'notion-library', title: "Product Designer's Notion Library", text: 'My ongoing collection of design books, videos and resources, in Notion.' },
 ];
 ---
 
 <NewLayout title={page.title} description={page.description}>
   <header class="page-hero">
     <p class="eyebrow">Resources</p>
-    <h1>An ever growing <em>resources</em> page</h1>
-    <p class="lede">Free UX, UI and product design resources: design interview preparation, resume, cover letter and portfolio templates.</p>
+    <h1>Design and career <em>growth help</em></h1>
+    <p class="lede">Templates, guides and checklists I built from my own job hunts and years in tech. A few things are free; the rest live in my Gumroad shop.</p>
+    <div class="cta">
+      <a class="btn" href={SHOP} target="_blank" rel="noopener">Visit my Gumroad shop</a>
+      <a class="textlink" href="#free">or start with the free stuff</a>
+    </div>
   </header>
 
-  <section class="section tight">
-    <div class="tiles">
-      <a class="tile" href="https://mailchi.mp/c7ed20b3a9b2/newsletter" target="_blank" rel="noopener">
-        <span class="kicker">Free resources</span>
-        <h3>Subscribe to get access</h3>
-        <p>To have access to the free resources, please subscribe to my Newsletter.</p>
-        <span class="go">Subscribe →</span>
-      </a>
-      <a class="tile" href="/newsletter-archive">
-        <span class="kicker">Not sure yet?</span>
-        <h3>Hirlevel (Newsletter) Archive</h3>
-        <p>Do you want to review what this newsletter is about? Read the archive first.</p>
-        <span class="go">Read the archive →</span>
-      </a>
-      <a class="tile" href="https://www.notion.so/c107bf43da404219804a8f090a23cb95?v=b81fb430bd494ce5b3b3b8288b8b7b17" target="_blank" rel="noopener">
-        <span class="kicker">Curated lists</span>
+  <section class="section tight" id="free">
+    <h2>Free, <em>always</em></h2>
+    <div class="tiles free-grid">
+      <a class="tile featured" href={NOTION} target="_blank" rel="noopener">
+        <span class="badge">Free</span>
+        <span class="hand" aria-hidden="true">my gift to you ↓</span>
         <h3>My collections on Notion</h3>
         <p>I've been working on curating a useful list for UX practitioners &amp; enthusiasts.</p>
         <span class="go">Open Notion →</span>
       </a>
+      <a class="tile" href={NEWSLETTER} target="_blank" rel="noopener">
+        <span class="badge">Free</span>
+        <h3>The newsletter</h3>
+        <p>Notes for designers who want to grow: career moves, research, product, AI at work.</p>
+        <span class="go">Subscribe →</span>
+      </a>
+      <a class="tile" href="/newsletter-archive">
+        <span class="badge">Free</span>
+        <h3>Hirlevel (Newsletter) Archive</h3>
+        <p>Do you want to review what this newsletter is about? Read the archive first.</p>
+        <span class="go">Read the archive →</span>
+      </a>
+      <a class="tile" href={YOUTUBE} target="_blank" rel="noopener">
+        <span class="badge">Free</span>
+        <h3>YouTube</h3>
+        <p>Videos on design careers, interviews, research and life in tech.</p>
+        <span class="go">Watch →</span>
+      </a>
+      <a class="tile" href="/writing">
+        <span class="badge">Free</span>
+        <h3>150+ articles</h3>
+        <p>Everything I've written, searchable.</p>
+        <span class="go">Read →</span>
+      </a>
     </div>
   </section>
 
-  <section class="band">
+  <section class="band" id="shop">
     <div class="section">
-      <h2>Tools <em>I built</em></h2>
-      <div class="tiles">
-        {tools.map((tool) => (
-          <a class="tile" href={tool.href} target="_blank" rel="noopener">
-            <h3>{tool.title}</h3>
-            <p>{tool.text}</p>
-            <span class="go">Get it on Gumroad →</span>
+      <h2>From my <em>Gumroad shop</em></h2>
+      <div class="products">
+        {products.map((product) => (
+          <a class="product" href={`https://nikitisza.gumroad.com/l/${product.slug}`} target="_blank" rel="noopener">
+            <img src={`/images/pages/gumroad/${product.img}.jpg`} width="600" height="600" loading="lazy" alt={`${product.title} cover`} />
+            <div class="product-body">
+              <h3>{product.title}</h3>
+              <p>{product.text}</p>
+              <span class="go">View on Gumroad →</span>
+            </div>
           </a>
         ))}
       </div>
+      <p class="more"><a class="btn ghost light" href={SHOP} target="_blank" rel="noopener">See the whole shop →</a></p>
     </div>
   </section>
 </NewLayout>
