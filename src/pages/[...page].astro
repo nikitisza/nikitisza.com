@@ -8,7 +8,8 @@ const meta = import.meta.glob<Record<string, any>>('../fragments/*.json', { impo
 
 // getStaticPaths is hoisted out of the component, so the page list has to live inside it.
 export const getStaticPaths = () =>
-  ['home', 'about', 'services', 'resources', 'sketchnotes'].map((name) => ({ params: { page: name === 'home' ? undefined : name }, props: { name } }));
+  // Playground: the homepage is src/pages/index.astro (new design); src/fragments/home.* is kept but not routed.
+  ['about', 'services', 'resources', 'sketchnotes'].map((name) => ({ params: { page: name === 'home' ? undefined : name }, props: { name } }));
 
 const { name } = Astro.props;
 const page = meta[`../fragments/${name}.json`];
