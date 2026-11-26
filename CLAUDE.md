@@ -41,6 +41,12 @@ Details and examples are in [.claude/content-guide.md](.claude/content-guide.md)
 Push to `main`. GitHub Actions builds, checks the old URLs, and publishes to `gh-pages`. Never push to `gh-pages`
 yourself. Commit and push only when the user asks. Steps and troubleshooting: [.claude/deploy.md](.claude/deploy.md).
 
+## Playground
+
+For experiments (a new design, a trial page), use the playground: branch `playground`, pushed to the `playground`
+remote, published at https://playground.nikitisza.com. Never push experiments to `origin`. Steps:
+[.claude/playground.md](.claude/playground.md).
+
 ## Known gaps
 
 - There is no custom 404 page yet (GitHub Pages shows its own).
