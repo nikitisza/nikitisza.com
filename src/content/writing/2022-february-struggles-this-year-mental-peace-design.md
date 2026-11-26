@@ -1,5 +1,5 @@
 ---
-title: "2022 February - Struggles this year & mental peace & design"
+title: "Struggles this year, mental peace & design"
 date: "2022-02-26"
 order: 100.4074
 ---

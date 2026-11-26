@@ -1,5 +1,5 @@
 ---
-title: "Hirlevel #14 - Is the UX design career right for you?"
+title: "Is the UX design career right for you?"
 date: "2022-11-12"
 order: 100.1111
 ---

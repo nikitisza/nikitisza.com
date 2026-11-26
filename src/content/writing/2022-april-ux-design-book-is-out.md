@@ -1,5 +1,5 @@
 ---
-title: "2022 April - UX Design book is out!"
+title: "My UX design book is out!"
 date: "2022-04-27"
 order: 100.3333
 ---

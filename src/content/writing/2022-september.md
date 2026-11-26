@@ -1,5 +1,5 @@
 ---
-title: "2022 September - New job and Adobe & Figma news"
+title: "New job, and Adobe & Figma news"
 date: "2022-09-24"
 order: 100.1852
 ---

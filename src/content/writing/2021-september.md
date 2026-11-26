@@ -1,5 +1,5 @@
 ---
-title: "2021 September"
+title: "My first newsletter: design blogs, a designer game and a new beginning"
 date: "2021-09-29"
 order: 100.5926
 ---

@@ -1,5 +1,5 @@
 ---
-title: "2021 November"
+title: "Introducing Hirlevel: NaNoWriMo, cyberbullying and design trends for 2022"
 date: "2021-11-29"
 order: 100.5185
 ---

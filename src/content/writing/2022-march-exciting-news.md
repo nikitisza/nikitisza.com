@@ -1,5 +1,5 @@
 ---
-title: "2022 March - Exciting news"
+title: "Two exciting news: a free UX book and a move to Canada"
 date: "2022-03-29"
 order: 100.3704
 ---

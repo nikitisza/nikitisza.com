@@ -1,5 +1,5 @@
 ---
-title: "2023 January - Resume Writing Kit"
+title: "Start 2023 strong: resume best practices (and a free Resume Writing Kit)"
 date: "2023-01-04"
 order: 100.0741
 ---

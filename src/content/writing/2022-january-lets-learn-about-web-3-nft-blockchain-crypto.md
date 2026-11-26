@@ -1,5 +1,5 @@
 ---
-title: "2022 January - Let's learn about Web 3: NFT, Blockchain, Crypto"
+title: "Let's learn about Web 3: NFT, Blockchain, Crypto"
 date: "2022-01-30"
 order: 100.4444
 ---

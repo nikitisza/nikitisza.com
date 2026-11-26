@@ -1,5 +1,5 @@
 ---
-title: "2021 December"
+title: "Habits over goals: my end-of-year reflection"
 date: "2021-12-31"
 order: 100.4815
 ---

@@ -1,5 +1,5 @@
 ---
-title: "2022 October - 90-Day Plan to set yourself up for success in a new job"
+title: "A 90-day plan to set yourself up for success in a new job"
 date: "2022-10-30"
 order: 100.1481
 ---

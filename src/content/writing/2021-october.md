@@ -1,5 +1,5 @@
 ---
-title: "2021 October"
+title: "Design podcasts I recommend (and my plan to write a book in a month)"
 date: "2021-10-30"
 order: 100.5556
 ---

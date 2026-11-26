@@ -1,5 +1,5 @@
 ---
-title: "2022 August"
+title: "I made it to Canada (and what job hunting looks like now)"
 date: "2022-08-30"
 order: 100.2222
 ---
