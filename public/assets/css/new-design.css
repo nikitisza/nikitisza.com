@@ -126,12 +126,14 @@ a.card:hover, a.tile:hover { transform: translate(-3px, -3px); box-shadow: 5px 5
 .values .tile { gap: 8px; }
 .services { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; }
 .service { flex: 0 1 calc((100% - 44px) / 3); background: var(--card); border: 1.5px solid var(--ink); border-radius: 12px; padding: 18px; display: flex; align-items: flex-start; gap: 14px; }
-.service img { width: 64px; height: 64px; flex: none; background: var(--paper); border: 1px solid rgba(35, 36, 43, 0.15); border-radius: 10px; padding: 2px; }
+.service img { width: 92px; height: 92px; flex: none; margin: -10px -6px -10px -10px; }
 .service h3 { font: 800 19px/1.2 var(--sans); letter-spacing: -0.01em; margin: 2px 0 6px; }
 .service p { margin: 0; font-size: 14.5px; line-height: 1.5; color: #4b4b53; }
 .eyebrow.light { color: #cfcac0; }
-.logos { list-style: none; margin: 18px auto 0; padding: 0; max-width: 1100px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 28px 48px; }
-.logos img { width: auto; display: block; opacity: 0.95; }
+/* One strip when everything fits; otherwise two strips (4 + 3), each kept on one line */
+.logos { margin: 18px auto 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 28px 48px; }
+.logo-row { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 48px; }
+.logos img { height: var(--h); width: auto; display: block; opacity: 0.95; }
 .talk { max-width: 680px; margin: 0 auto; text-align: center; }
 .talk .hand { color: var(--tomato); display: block; transform: rotate(-3deg); margin-bottom: 10px; }
 .talk h2 { margin-bottom: 16px; }
@@ -200,6 +202,8 @@ a.card:hover, a.tile:hover { transform: translate(-3px, -3px); box-shadow: 5px 5
   .cards, .videos { grid-template-columns: 1fr; }
   .products, .free-row, .values { grid-template-columns: 1fr; }
   .service { flex-basis: 100%; }
+  .logos, .logo-row { gap: 20px 22px; }
+  .logos img { height: calc(var(--h) * 0.62); }
   .product img { width: 96px; height: 96px; }
   .newsletter .inner { grid-template-columns: 1fr; }
   .topbar .msg { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

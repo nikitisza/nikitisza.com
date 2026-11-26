@@ -72,9 +72,13 @@ const logos = [
   <section class="dark">
     <div class="section">
       <p class="eyebrow light center">Teams I've worked with</p>
-      <ul class="logos">
-        {logos.map((logo) => <li><img src={`/images/pages/services/${logo.file}`} alt={logo.name} style={`height:${logo.h}px`} /></li>)}
-      </ul>
+      <div class="logos">
+        {[logos.slice(0, 4), logos.slice(4)].map((row) => (
+          <ul class="logo-row">
+            {row.map((logo) => <li><img src={`/images/pages/services/${logo.file}`} alt={logo.name} style={`--h:${logo.h}px`} /></li>)}
+          </ul>
+        ))}
+      </div>
     </div>
   </section>
 
