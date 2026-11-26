@@ -51,10 +51,11 @@ Open http://localhost:4321. The page reloads when you save a file.
 | --- | --- |
 | `src/content/writing/` | Blog posts, one Markdown file each. The file name is the URL: `/writing/<file-name>` |
 | `src/content/newsletter-archive/` | Newsletter issues, same rule: `/newsletter-archive/<file-name>` |
-| `src/fragments/` | The hand-built pages (home, about, services, resources, sketchnotes): one `.html` and one `.json` each |
+| `src/pages/` | The pages (home, about, services, resources, sketchnotes, writing list, article template) |
+| `src/fragments/` | Page titles and descriptions (`.json`); the old page HTML, kept for reference |
 | `public/images/` | Images, served as `/images/...` |
-| `public/assets/` | The site CSS, fonts and icons |
-| `src/components/`, `src/layouts/`, `src/pages/`, `src/scripts/` | Navbar, footer, page layout, page routes, mobile menu |
+| `public/assets/` | The site CSS (`new-design.css`), fonts and icons |
+| `src/layouts/NewLayout.astro`, `src/lib/` | Shared banner, menu, newsletter band and footer; links and list helpers |
 | `scripts/urls.txt`, `scripts/check-urls.mjs` | Every URL of the old site, and the script that tests them (`pnpm check-urls`) |
 
 How to add a post, edit a page or add an image: [.claude/content-guide.md](.claude/content-guide.md).

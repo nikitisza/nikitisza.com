@@ -15,8 +15,10 @@ README Quick start instead.
   move or delete a file under `src/content/` or `src/fragments/` unless the user asks, and then say which URL
   changes. Run `pnpm check-urls` after a build to prove the old URLs still work.
 - **Edit content directly in this repo.** There is no export or sync step any more.
-- The design is Niki's. Do not restyle the site or change class names; the CSS in `public/assets/css/niki-design.css`
-  depends on them. Never name the previous hosting service in docs, code or config.
+- The design is Niki's. Do not restyle the site unless she asks. Pages, the shared shell and the articles use
+  `src/layouts/NewLayout.astro` and `public/assets/css/new-design.css`; the old `niki-design.css`, `Layout.astro`,
+  `Navbar.astro` and `Footer.astro` are only used by the `/newsletter-archive` pages now.
+  Never name the previous hosting service in docs, code or config.
   Niki's own writing in `src/content/` may mention it; leave it as she wrote it.
 - One small change at a time; show the user what changed and how to see it.
 
@@ -33,7 +35,8 @@ Details and examples are in [.claude/content-guide.md](.claude/content-guide.md)
 - **New blog post:** create `src/content/writing/<slug>.md` with `title`, `summary`, `date` and an `order` one lower
   than the lowest existing one. Images go in `public/images/writing/<slug>/`.
 - **New newsletter issue:** same, in `src/content/newsletter-archive/`, with `title`, `date`, `order`.
-- **Edit a page** (home, about, services, resources, sketchnotes): edit `src/fragments/<page>.html`.
+- **Edit a page** (home, about, services, resources, sketchnotes, writing list): edit `src/pages/<page>.astro`.
+  The text is in the file; shared links (YouTube, newsletter, Gumroad shop) are in `src/lib/links.ts`.
 - **Unpublish from lists but keep the URL:** `listed: false` in the front matter.
 
 ## Deploy

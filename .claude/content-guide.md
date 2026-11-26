@@ -74,14 +74,19 @@ Hello, fellow creative! ...
 Find the lowest order with `grep -h '^order:' src/content/newsletter-archive/*.md | sort -t: -k2 -n | head -1`.
 Images go in `public/images/newsletter-archive/<slug>/`. There is no summary field.
 
-## Edit the home, about, services, resources or sketchnotes page
+## Edit the home, about, services, resources, sketchnotes or writing page
 
-Each page is two files in `src/fragments/`:
+Each page is one file in `src/pages/`: `index.astro` (home), `about.astro`, `services.astro`, `resources.astro`,
+`sketchnotes.astro`, `writing.astro` (the list). Edit the text in the HTML part of the file; lists of cards
+(products, services, values, videos, logos) are arrays at the top of the file.
 
-- `<page>.html`: the content between the navbar and the footer. Edit the text between the tags; keep the `class`
-  names, because the CSS uses them. Do not add `<html>`, `<head>` or `<body>`.
-- `<page>.json`: `title` (browser tab and search results), `description` (search results), `bodyClass`, and
-  `footer` (`true` shows the footer).
+- The banner, menu, newsletter band and footer are shared: `src/layouts/NewLayout.astro`.
+- Styles: `public/assets/css/new-design.css`. Colours and fonts are the variables at the top.
+- Links used on several pages (YouTube, newsletter, Gumroad shop): `src/lib/links.ts`.
+- The page title and search description: the `title` and `description` passed to `<NewLayout>`. About, Services,
+  Resources, Sketchnotes and Writing still read theirs from `src/fragments/<page>.json`.
+
+The old `src/fragments/<page>.html` files are kept for reference but are no longer shown.
 
 Page images live in `public/images/pages/` and are used as `/images/pages/<file>`.
 
@@ -101,8 +106,8 @@ URL stops working, and remove its line from `scripts/urls.txt` too (otherwise `p
 
 ## Navigation and footer
 
-- Menu links: `src/components/Navbar.astro` (the `LINKS` list).
-- Footer text and social links: `src/components/Footer.astro`.
+- Menu links, banner text, footer links: `src/layouts/NewLayout.astro` (the `LINKS` list and the footer).
+- The old `src/components/Navbar.astro` and `Footer.astro` only appear on the `/newsletter-archive` pages.
 
 ## Things that look odd but are intended
 
