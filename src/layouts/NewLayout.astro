@@ -1,7 +1,7 @@
 ---
 // Page shell for the new design (playground): banner, nav, newsletter band and footer.
 // Styles: public/assets/css/new-design.css. The old pages keep using Layout.astro.
-import { YOUTUBE, NEWSLETTER } from '../lib/links';
+import { YOUTUBE, NEWSLETTER, SHOP } from '../lib/links';
 
 interface Props {
   title: string;
@@ -91,6 +91,7 @@ const current = (href: string) => (path === href || path.startsWith(`${href}/`) 
         <a href="https://www.instagram.com/itsmenikitisza" target="_blank" rel="noopener">Instagram</a>
         <a href={YOUTUBE} target="_blank" rel="noopener">YouTube</a>
         <a href={NEWSLETTER} target="_blank" rel="noopener">Newsletter</a>
+        <a href={SHOP} target="_blank" rel="noopener">Gumroad shop</a>
       </span>
     </footer>
   </body>

@@ -1,6 +1,7 @@
 // Links used by the new design (playground).
 export const YOUTUBE = 'https://www.youtube.com/channel/UCJQqF6pb2xj3yekYpc1QkZQ?sub_confirmation=1';
 export const NEWSLETTER = 'https://nikitisza.substack.com/';
+export const SHOP = 'https://nikitisza.gumroad.com/';
 
 // Display helpers for post lists.
 export const shortDate = (date?: Date) =>
