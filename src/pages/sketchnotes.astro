@@ -1,0 +1,40 @@
+---
+// Playground Sketchnotes page (new design). Text and videos from src/fragments/sketchnotes.html.
+import NewLayout from '../layouts/NewLayout.astro';
+import page from '../fragments/sketchnotes.json';
+
+const DOODLES = 'https://www.youtube.com/channel/UCRh48H1cIxnkzN1T5KCzV2g';
+const videos = [
+  { id: 'tuc1DIt1zVo', title: '40+ doodles | Things to do in quarantine & home alone' },
+  { id: 'hMw2e7zYkEk', title: 'Visual alphabet - how to draw lighthouse | easy drawing' },
+  { id: 'BTfvRF2FnWM', title: 'Watch me Scribe! | Noticing our thoughts | Sketchnote & Graphic recording' },
+  { id: 'Gw1vQHphRy8', title: '20+ Containers for BuJo and Sketchnotes | Doodles by Niki' },
+];
+---
+
+<NewLayout title={page.title} description={page.description}>
+  <header class="page-hero">
+    <p class="eyebrow">Sketchnotes · @doodlesbyniki</p>
+    <h1>Doodle <em>with me</em></h1>
+    <p class="lede">I started visual note taking during the time when I worked for PwC New Zealand. Because my interest is wide, I still feel I'm a beginner and new to sketchnoting. My doodles are not perfect, but I'm practising.</p>
+    <p class="lede">I share videos, Instagram, and Pinterest posts while I'm learning. I invite you to join my journey and doodle with me.</p>
+    <div class="cta">
+      <a class="btn" href={DOODLES} target="_blank" rel="noopener">Visit YouTube</a>
+      <span class="hand" aria-hidden="true">← lots more doodles there</span>
+    </div>
+  </header>
+
+  <main class="section tight">
+    <h2>Watch some of the most popular <em>sketchnote videos</em></h2>
+    <div class="videos">
+      {videos.map((video) => (
+        <figure style="margin:0">
+          <div class="video">
+            <iframe src={`https://www.youtube.com/embed/${video.id}?rel=0`} title={video.title} loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <figcaption class="video-title">{video.title}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </main>
+</NewLayout>

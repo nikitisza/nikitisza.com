@@ -1,0 +1,59 @@
+---
+// Playground Resources page (new design). Text from src/fragments/resources.html; the "Tools I built" tiles
+// reuse the Gumroad links Niki already shares on the About page and in her posts.
+import NewLayout from '../layouts/NewLayout.astro';
+import page from '../fragments/resources.json';
+
+const tools = [
+  { title: 'Job application tracker', text: 'Keep every application, contact and follow-up in one place.', href: 'https://nikitisza.gumroad.com/l/jobapptracker' },
+  { title: 'Resume writing kit', text: 'Templates and guidance for a resume that gets read.', href: 'https://nikitisza.gumroad.com/l/resumewritingkit' },
+  { title: 'UX Design Book', text: 'What I wish I knew before starting in UX design.', href: 'https://nikitisza.gumroad.com/l/what_I_wish_I_knew_before_starting_in_UX_design' },
+  { title: 'Sketching for UX', text: 'Get comfortable drawing ideas, flows and screens.', href: 'https://nikitisza.gumroad.com/l/sketchingforux' },
+];
+---
+
+<NewLayout title={page.title} description={page.description}>
+  <header class="page-hero">
+    <p class="eyebrow">Resources</p>
+    <h1>An ever growing <em>resources</em> page</h1>
+    <p class="lede">Free UX, UI and product design resources: design interview preparation, resume, cover letter and portfolio templates.</p>
+  </header>
+
+  <section class="section tight">
+    <div class="tiles">
+      <a class="tile" href="https://mailchi.mp/c7ed20b3a9b2/newsletter" target="_blank" rel="noopener">
+        <span class="kicker">Free resources</span>
+        <h3>Subscribe to get access</h3>
+        <p>To have access to the free resources, please subscribe to my Newsletter.</p>
+        <span class="go">Subscribe →</span>
+      </a>
+      <a class="tile" href="/newsletter-archive">
+        <span class="kicker">Not sure yet?</span>
+        <h3>Hirlevel (Newsletter) Archive</h3>
+        <p>Do you want to review what this newsletter is about? Read the archive first.</p>
+        <span class="go">Read the archive →</span>
+      </a>
+      <a class="tile" href="https://www.notion.so/c107bf43da404219804a8f090a23cb95?v=b81fb430bd494ce5b3b3b8288b8b7b17" target="_blank" rel="noopener">
+        <span class="kicker">Curated lists</span>
+        <h3>My collections on Notion</h3>
+        <p>I've been working on curating a useful list for UX practitioners &amp; enthusiasts.</p>
+        <span class="go">Open Notion →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="section">
+      <h2>Tools <em>I built</em></h2>
+      <div class="tiles">
+        {tools.map((tool) => (
+          <a class="tile" href={tool.href} target="_blank" rel="noopener">
+            <h3>{tool.title}</h3>
+            <p>{tool.text}</p>
+            <span class="go">Get it on Gumroad →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</NewLayout>

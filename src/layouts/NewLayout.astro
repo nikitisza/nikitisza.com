@@ -1,0 +1,97 @@
+---
+// Page shell for the new design (playground): banner, nav, newsletter band and footer.
+// Styles: public/assets/css/new-design.css. The old pages keep using Layout.astro.
+import { YOUTUBE, NEWSLETTER } from '../lib/links';
+
+interface Props {
+  title: string;
+  description?: string;
+  newsletter?: boolean;
+  rss?: boolean;
+}
+
+const { title, description, newsletter = true, rss = false } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const GA_ID = 'G-5ZTFNSGM61';
+const LINKS = [
+  { href: '/about', label: 'About' },
+  { href: '/writing', label: 'Writing' },
+  { href: '/sketchnotes', label: 'Sketchnotes' },
+  { href: '/resources', label: 'Resources' },
+];
+const current = (href: string) => (path === href || path.startsWith(`${href}/`) ? { 'aria-current': 'page' as const } : {});
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-site-verification" content="Dk6szGDapc-v3A7BjgN-AS29VyqQd7WiZtMLw_CLiak" />
+    <link rel="shortcut icon" href="/assets/images/6201d67df9f6535234311792_Frame-24.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/assets/images/6201d68a14b77356c29150a4_Frame-23.png" />
+    {rss && <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/writing/rss.xml" />}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+    <link href="/assets/css/new-design.css" rel="stylesheet" />
+    {/* The standard gtag loader, only on the real domain so local and preview runs send no hits. */}
+    <script is:inline define:vars={{ GA_ID }}>
+      if (location.hostname === 'nikitisza.com' || location.hostname === 'www.nikitisza.com') {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+        document.head.appendChild(script);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('config', GA_ID, { anonymize_ip: false });
+      }
+    </script>
+  </head>
+  <body>
+    <div class="topbar">
+      <span class="msg">New video: Please don't subscribe (I need something else)</span>
+      <a href="/writing/please-dont-subscribe-i-need-something-else">Watch →</a>
+    </div>
+
+    <nav class="nav" aria-label="Main">
+      <a class="logo" href="/" {...(path === '/' ? { 'aria-current': 'page' as const } : {})}>nikitisza<span>.</span>com</a>
+      <span class="links">{LINKS.map(({ href, label }) => <a href={href} {...current(href)}>{label}</a>)}</span>
+      <a class="yt" href={YOUTUBE} target="_blank" rel="noopener">
+        <svg viewBox="0 0 18 13" aria-hidden="true"><rect width="18" height="13" rx="3.5" fill="#e0563b"></rect><path d="M7 3.6v5.8L11.8 6.5z" fill="#fff"></path></svg>
+        YouTube channel
+      </a>
+    </nav>
+
+    <slot />
+
+    {newsletter && (
+      <section class="newsletter">
+        <div class="inner">
+          <div>
+            <h2>Notes for designers <em>who want to grow</em></h2>
+            <p>Career moves, research, product, AI at work. Straight to your inbox.</p>
+          </div>
+          <div><a class="btn" href={NEWSLETTER} target="_blank" rel="noopener">Subscribe</a></div>
+        </div>
+      </section>
+    )}
+
+    <footer class="foot">
+      <span>© Niki Tisza · Type: Europa Nuova &amp; Minion Pro</span>
+      <span class="social">
+        <a href="https://www.linkedin.com/in/nikitisza/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://nikitisza.medium.com/" target="_blank" rel="noopener">Medium</a>
+        <a href="https://www.instagram.com/itsmenikitisza" target="_blank" rel="noopener">Instagram</a>
+        <a href={YOUTUBE} target="_blank" rel="noopener">YouTube</a>
+        <a href={NEWSLETTER} target="_blank" rel="noopener">Newsletter</a>
+      </span>
+    </footer>
+  </body>
+</html>
