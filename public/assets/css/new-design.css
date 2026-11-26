@@ -130,7 +130,8 @@ a.card:hover, a.tile:hover { transform: translate(-3px, -3px); box-shadow: 5px 5
 .service h3 { font: 800 19px/1.2 var(--sans); letter-spacing: -0.01em; margin: 2px 0 6px; }
 .service p { margin: 0; font-size: 14.5px; line-height: 1.5; color: #4b4b53; }
 .eyebrow.light { color: #cfcac0; }
-.clients { width: 100%; max-width: 1000px; height: auto; margin: 8px auto 0; opacity: 0.95; }
+.logos { list-style: none; margin: 18px auto 0; padding: 0; max-width: 1100px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 28px 48px; }
+.logos img { width: auto; display: block; opacity: 0.95; }
 .talk { max-width: 680px; margin: 0 auto; text-align: center; }
 .talk .hand { color: var(--tomato); display: block; transform: rotate(-3deg); margin-bottom: 10px; }
 .talk h2 { margin-bottom: 16px; }

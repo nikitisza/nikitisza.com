@@ -19,6 +19,15 @@ const services = [
   { icon: 'usability-testing', title: 'Usability testing', text: 'Create and test prototypes or products with potential and real customers to make sure the user experience is smooth, and people want to use your product.' },
   { icon: 'development-handoff', title: 'Development handoff', text: 'Collaborate with developers throughout the entire project to create a scalable, pixel perfect product that works and looks great.' },
 ];
+const logos = [
+  { name: 'Akamai', file: 'akamai.svg', h: 36 },
+  { name: 'Lightspeed Commerce', file: 'lightspeed.svg', h: 27 },
+  { name: 'Oracle', file: 'logo-oracle.png', h: 20 },
+  { name: 'PwC', file: 'logo-pwc.png', h: 50 },
+  { name: 'Westpac', file: 'logo-westpac.png', h: 20 },
+  { name: 'New Zealand Government', file: 'logo-nz-government.png', h: 20 },
+  { name: 'Stuff', file: 'logo-stuff.png', h: 20 },
+];
 ---
 
 <NewLayout title={page.title} description={page.description}>
@@ -63,7 +72,9 @@ const services = [
   <section class="dark">
     <div class="section">
       <p class="eyebrow light center">Teams I've worked with</p>
-      <img class="clients" src="/images/pages/services/clients.png" width="1888" height="149" alt="Logos of companies Niki has worked with" />
+      <ul class="logos">
+        {logos.map((logo) => <li><img src={`/images/pages/services/${logo.file}`} alt={logo.name} style={`height:${logo.h}px`} /></li>)}
+      </ul>
     </div>
   </section>
 
