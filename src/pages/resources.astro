@@ -1,25 +1,22 @@
 ---
-// Playground Resources page (new design): the free things first, then the Gumroad shop with Niki's product thumbnails
-// (saved from her shop into public/images/pages/gumroad/). Product names match Gumroad.
+// Playground Resources page (new design): the free things first, then a short pick from the Gumroad shop
+// with Niki's product thumbnails (public/images/pages/gumroad/). Product names match Gumroad.
 import NewLayout from '../layouts/NewLayout.astro';
 import page from '../fragments/resources.json';
 import { YOUTUBE, NEWSLETTER } from '../lib/links';
 
 const SHOP = 'https://nikitisza.gumroad.com/';
-const NOTION = 'https://www.notion.so/c107bf43da404219804a8f090a23cb95?v=b81fb430bd494ce5b3b3b8288b8b7b17';
+const NOTION_LIBRARY = 'https://nikitisza.gumroad.com/l/prod-design-lib';
 const products = [
   { slug: 'jobapptracker', img: 'job-application-tracker', title: 'Job Application Tracker (Google Sheet)', text: 'The spreadsheet system I used to stay organised through my own tech job hunt.' },
   { slug: 'resumewritingkit', img: 'resume-writing-kit', title: 'Resume Writing Kit - Beat the Robots!', text: 'The kit that landed me interviews at Amazon, Oracle, PwC and more.' },
-  { slug: '90-day-plan', img: 'new-job-90-day-plan', title: 'New Design Job Survival Guide - 90-Day Plan', text: 'Onboard to a new product and company with a clear plan for your first 90 days.' },
-  { slug: 'design-handoff-checklist', img: 'handoff-checklist', title: 'Handoff Checklist for Product Designers (When You Leave a Job)', text: 'Leave your job like a pro, without burning bridges or dropping balls.' },
   { slug: 'UX-quiz', img: 'ux-career-self-assessment', title: 'UX Career Self-assessment', text: 'Not sure UX design is the right job for you? This quiz helps you decide.' },
   { slug: 'what_I_wish_I_knew_before_starting_in_UX_design', img: 'ux-design-book', title: 'What I wish I knew before starting in UX design', text: 'The book I wish I had when I started out in UX.' },
   { slug: 'sketchingforux', img: 'sketching-for-ux', title: 'Sketching for UX — a practical guide & work booklet', text: 'Learn to sketch ideas, flows and screens, with exercises to practise.' },
-  { slug: 'prod-design-lib', img: 'notion-library', title: "Product Designer's Notion Library", text: 'My ongoing collection of design books, videos and resources, in Notion.' },
 ];
 ---
 
-<NewLayout title={page.title} description={page.description}>
+<NewLayout title={page.title} description={page.description} newsletter={false}>
   <header class="page-hero">
     <p class="eyebrow">Resources</p>
     <h1>Design and career <em>growth help</em></h1>
@@ -32,25 +29,22 @@ const products = [
 
   <section class="section tight" id="free">
     <h2>Free, <em>always</em></h2>
-    <div class="tiles free-grid">
-      <a class="tile featured" href={NOTION} target="_blank" rel="noopener">
-        <span class="badge">Free</span>
-        <span class="hand" aria-hidden="true">my gift to you ↓</span>
-        <h3>My collections on Notion</h3>
-        <p>I've been working on curating a useful list for UX practitioners &amp; enthusiasts.</p>
-        <span class="go">Open Notion →</span>
+    <div class="free-grid">
+      <a class="tile featured" href={NOTION_LIBRARY} target="_blank" rel="noopener">
+        <img src="/images/pages/gumroad/notion-library.jpg" width="600" height="600" alt="Product Designer's Notion Library cover" />
+        <div>
+          <span class="badge">Free</span>
+          <span class="hand" aria-hidden="true">my gift to you ↓</span>
+          <h3>My collections on Notion</h3>
+          <p>I've been working on curating a useful list for UX practitioners &amp; enthusiasts.</p>
+          <span class="go">Get it free on Gumroad →</span>
+        </div>
       </a>
       <a class="tile" href={NEWSLETTER} target="_blank" rel="noopener">
         <span class="badge">Free</span>
         <h3>The newsletter</h3>
         <p>Notes for designers who want to grow: career moves, research, product, AI at work.</p>
         <span class="go">Subscribe →</span>
-      </a>
-      <a class="tile" href="/newsletter-archive">
-        <span class="badge">Free</span>
-        <h3>Hirlevel (Newsletter) Archive</h3>
-        <p>Do you want to review what this newsletter is about? Read the archive first.</p>
-        <span class="go">Read the archive →</span>
       </a>
       <a class="tile" href={YOUTUBE} target="_blank" rel="noopener">
         <span class="badge">Free</span>
@@ -67,7 +61,7 @@ const products = [
     </div>
   </section>
 
-  <section class="band" id="shop">
+  <section class="dark" id="shop">
     <div class="section">
       <h2>From my <em>Gumroad shop</em></h2>
       <div class="products">
@@ -81,8 +75,14 @@ const products = [
             </div>
           </a>
         ))}
+        <a class="product shop-all" href={SHOP} target="_blank" rel="noopener">
+          <div class="product-body">
+            <span class="hand">and there's more…</span>
+            <h3>See the whole shop</h3>
+            <span class="go">nikitisza.gumroad.com →</span>
+          </div>
+        </a>
       </div>
-      <p class="more"><a class="btn ghost light" href={SHOP} target="_blank" rel="noopener">See the whole shop →</a></p>
     </div>
   </section>
 </NewLayout>
