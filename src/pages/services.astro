@@ -50,9 +50,11 @@ const services = [
     <div class="services">
       {services.map((service) => (
         <div class="service">
-          <img src={`/images/pages/services/${service.icon}.svg`} width="500" height="500" loading="lazy" alt="" />
-          <h3>{service.title}</h3>
-          <p>{service.text}</p>
+          <img src={`/images/pages/services/${service.icon}.svg`} width="64" height="64" loading="lazy" alt="" />
+          <div>
+            <h3>{service.title}</h3>
+            <p>{service.text}</p>
+          </div>
         </div>
       ))}
     </div>
@@ -61,7 +63,7 @@ const services = [
   <section class="dark">
     <div class="section">
       <p class="eyebrow light center">Teams I've worked with</p>
-      <img class="clients" src="/images/pages/6201bc5d6c2a474bdf699c73_frame-22.png" width="2069" height="149" alt="Logos of companies Niki has worked with" />
+      <img class="clients" src="/images/pages/services/clients.png" width="1888" height="149" alt="Logos of companies Niki has worked with" />
     </div>
   </section>
 
