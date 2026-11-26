@@ -1,6 +1,5 @@
 ---
 // Playground About page (new design). Text is Niki's, from src/fragments/about.html, regrouped into sections.
-// "Most popular articles" link to the copies on this site where one exists.
 import NewLayout from '../layouts/NewLayout.astro';
 import { YOUTUBE } from '../lib/links';
 
@@ -9,15 +8,6 @@ const free = [
   { n: '1', title: 'UX Design Book', href: `https://nikitisza.gumroad.com/l/what_I_wish_I_knew_before_starting_in_UX_design${SRC}` },
   { n: '2', title: 'Resume Writing Kit', href: `https://nikitisza.gumroad.com/l/resumewritingkit${SRC}` },
   { n: '3', title: 'Sketching for UX', href: `https://nikitisza.gumroad.com/l/sketchingforux${SRC}` },
-];
-const popular = [
-  { title: 'Whiteboard Design Challenge — as Part of the Design Interview Process', href: '/writing/whiteboard-design-challenge' },
-  { title: 'Opinion: 8 reasons why companies don’t hire junior UX designers & how to get hired', href: '/writing/why-companies-dont-hire-junior-designer' },
-  { title: 'How to Design Better Icons', href: '/writing/how-to-design-better-icons' },
-  { title: 'UX design? UI design? Product design? What’s the difference?', href: '/writing/ux-design-ui-design-product-design-whats-the-difference' },
-  { title: 'The Single Most Important Thing You Need To Know About Required & Optional Input Fields', href: '/writing/the-single-most-important-thing-you-need-to-know-about-required-optional-input-fields' },
-  { title: 'The Best Free UI Kits for Figma', href: `https://medium.com/p/2df33dfaa687${SRC}` },
-  { title: '12 areas ChatGPT helps my work as a UX designer', href: '/writing/12-areas-chatgpt-helps-my-work-as-a-ux-designer' },
 ];
 ---
 
@@ -34,8 +24,8 @@ const popular = [
         <li><a href={YOUTUBE} target="_blank" rel="noopener">I create YouTube videos.</a></li>
       </ul>
     </div>
-    <div class="photo square">
-      <img src="/images/pages/68bcafe8b84fe73564cda39a_niki.png" width="600" height="600" alt="Niki smiling, holding her glasses, in front of a brick wall" />
+    <div class="photo">
+      <img src="/images/pages/niki-cafe.jpg" width="900" height="1200" alt="Niki in a light blue shirt, looking up thoughtfully in a bright café" />
       <span class="note">I'm Niki.</span>
     </div>
   </header>
@@ -51,34 +41,18 @@ const popular = [
             <span class="go">Get it on Gumroad →</span>
           </a>
         ))}
-        <a class="tile" href={`http://linktr.ee/nikitisza${SRC}`} target="_blank" rel="noopener">
-          <span class="num">+</span>
-          <h3>Everything else</h3>
-          <p>Get them now → linktr.ee/nikitisza</p>
-          <span class="go">Open Linktree →</span>
-        </a>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="prose">
-      <h2>Most popular <em>articles</em></h2>
-      <ul>
-        {popular.map((post) => <li><a href={post.href} {...(post.href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{post.title}</a></li>)}
-      </ul>
-
+      <h2>A little <em>about me</em></h2>
       <p>
         You can often find me creating videos about product design over on <a href="https://www.youtube.com/@nikitisza" target="_blank" rel="noopener">YouTube</a>, or sharing my thoughts on <a href="https://medium.com/@nikitisza" target="_blank" rel="noopener">Medium</a>. I'm passionate about mentoring the next generation of designers and giving back to the design community.
       </p>
       <p>
         My other passion is personal finance. As a former (burnt-out) investment banker, I became obsessed with understanding money and building healthy financial habits. The knowledge I've gained over decades shouldn't stay locked away, so I share practical money management advice through my <a href="https://www.instagram.com/itsmenikitisza" target="_blank" rel="noopener">Instagram</a> and <a href="https://www.tiktok.com/@niki.tisza" target="_blank" rel="noopener">TikTok</a> accounts, helping others navigate their money journey without the trial and error I went through.
-      </p>
-      <p>
-        <strong>Newsletter:</strong> I write a newsletter on product design, design career, self-development, writing, and how to be a part-time creator online. If that's your thing, <a href="https://nikitisza.substack.com/" target="_blank" rel="noopener">subscribe here</a>.
-      </p>
-      <p>
-        Follow me on <a href={`https://www.linkedin.com/in/nikitisza/${SRC}`} target="_blank" rel="noopener">LinkedIn</a> or <a href={`https://twitter.com/nikitisza${SRC}`} target="_blank" rel="noopener">Twitter</a>.
       </p>
 
       <h2><em>Storytime</em></h2>
@@ -103,17 +77,16 @@ const popular = [
       <p>My full story about writing can be found <a href="/writing/all-i-ever-wanted-was-to-write">here.</a></p>
 
       <h2>My professional <em>experience</em></h2>
-      <p>I have 10 years of experience making thousands of users' digital experience more enjoyable. My greatest strengths are making sense of complexity with analytical approach &amp; designing intuitive interfaces that encompass user needs, business goals, and technical feasibility.</p>
+      <p>I have 15+ years of experience making thousands of users' digital experience more enjoyable. My greatest strengths are making sense of complexity with an analytical approach, grounding decisions in research and data, and keeping users and customers, business goals, and technical feasibility in balance.</p>
       <p>With an adventurous spirit, I honed my skills across a diverse set of industries and digital products, including an award winning mobile website builder, a revolutionary hospital service design, and a modern cloud-based e-commerce &amp; analytics tool.</p>
-      <p>Recent New Zealand Government projects focused on climate change and simplifying the oddly complex pet export service. I also led two UX projects for the new Landonline product at Toitū Te Whenua Land Information New Zealand and Stuff as a UX architect.</p>
-      <p>I'm currently based in Canada, working full-time at <a href="https://benevity.com/" target="_blank" rel="noopener">Benevity</a>. I'm also a writer for <a href="https://logrocket.com/" target="_blank" rel="noopener">LogRocket</a>.</p>
+      <p>I'm currently based in Canada, working full-time at <a href="https://www.akamai.com/" target="_blank" rel="noopener">Akamai</a>. I used to write for <a href="https://logrocket.com/" target="_blank" rel="noopener">LogRocket</a>.</p>
       <p>I'm always up for opportunities to consult, write, and collaborate creatively or simply share thoughts over a cup of coffee. I would love to hear from you.</p>
       <p>Check out the <a href="/services">services</a> I provide if you're looking for help with your project.</p>
       <p>I'm available for projects, collaborations, podcasts, talks, consultation, and leading workshops. If you're interested in partnership, take a look at my <a href="https://docs.google.com/document/d/1MMXlGegT_G_3Wb6PsOU-l5JaRusp8CjUWAXCdyO6SqA/edit?usp=sharing" target="_blank" rel="noopener">Mediakit</a>.</p>
 
       <div class="pullquote">
         <span class="kicker">Byline for publications</span>
-        <p>UX Practitioner &amp; Product Leader with over a decade of experience blending her product, design, engineering, and psychology knowledge. Specializes in product strategy &amp; discovery. Global portfolio includes PwC, Oracle, startups, and governmental projects. Published writer and YouTuber.</p>
+        <p>UX Practitioner &amp; Product Leader with over 15 years of experience blending her product, design, engineering, and psychology knowledge. Specializes in product strategy &amp; discovery. Global portfolio includes PwC, Oracle, Akamai, Lightspeed Commerce, startups, and governmental projects. Digital content creator, writer, and YouTuber.</p>
       </div>
     </div>
   </section>
