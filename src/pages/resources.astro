@@ -29,16 +29,13 @@ const products = [
 
   <section class="section tight" id="free">
     <h2>Free, <em>always</em></h2>
-    <div class="free-grid">
+    <div class="tiles free-row">
       <a class="tile featured" href={NOTION_LIBRARY} target="_blank" rel="noopener">
-        <img src="/images/pages/gumroad/notion-library.jpg" width="600" height="600" alt="Product Designer's Notion Library cover" />
-        <div>
-          <span class="badge">Free</span>
-          <span class="hand" aria-hidden="true">my gift to you ↓</span>
-          <h3>My collections on Notion</h3>
-          <p>I've been working on curating a useful list for UX practitioners &amp; enthusiasts.</p>
-          <span class="go">Get it free on Gumroad →</span>
-        </div>
+        <span class="badge">Free</span>
+        <span class="hand" aria-hidden="true">my gift to you ↓</span>
+        <h3>My collections on Notion</h3>
+        <p>I've been working on curating a useful list for UX practitioners &amp; enthusiasts.</p>
+        <span class="go">Get it free on Gumroad →</span>
       </a>
       <a class="tile" href={NEWSLETTER} target="_blank" rel="noopener">
         <span class="badge">Free</span>
@@ -75,14 +72,8 @@ const products = [
             </div>
           </a>
         ))}
-        <a class="product shop-all" href={SHOP} target="_blank" rel="noopener">
-          <div class="product-body">
-            <span class="hand">and there's more…</span>
-            <h3>See the whole shop</h3>
-            <span class="go">nikitisza.gumroad.com →</span>
-          </div>
-        </a>
       </div>
+      <p class="more"><a class="btn ghost light" href={SHOP} target="_blank" rel="noopener">See the whole shop →</a></p>
     </div>
   </section>
 </NewLayout>
