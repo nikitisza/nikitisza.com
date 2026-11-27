@@ -1,5 +1,5 @@
 ---
-// Page shell for the new design (playground): banner, nav, newsletter band and footer.
+// Page shell for the new design: banner, nav, newsletter band and footer.
 // Styles: public/assets/css/new-design.css. The old pages keep using Layout.astro.
 import { YOUTUBE, NEWSLETTER, SHOP } from '../lib/links';
 
@@ -33,8 +33,9 @@ const current = (href: string) => (path === href || path.startsWith(`${href}/`) 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="Dk6szGDapc-v3A7BjgN-AS29VyqQd7WiZtMLw_CLiak" />
-    <link rel="shortcut icon" href="/assets/images/6201d67df9f6535234311792_Frame-24.png" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="/assets/images/6201d68a14b77356c29150a4_Frame-23.png" />
+    <link rel="icon" href="/assets/images/favicon/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/assets/images/favicon/favicon-256.png" type="image/png" sizes="256x256" />
+    <link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png" />
     {rss && <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/writing/rss.xml" />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

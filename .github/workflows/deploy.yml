@@ -37,14 +37,6 @@ jobs:
           for i in $(seq 30); do curl -sf http://localhost:4321/ > /dev/null && break; sleep 1; done
           pnpm check-urls
 
-      # The playground copy of this repo (nikitisza/nikitisza-playground) publishes to playground.nikitisza.com
-      # and asks search engines to stay away. The real site is not affected by this step.
-      - name: Playground settings
-        if: github.repository == 'nikitisza/nikitisza-playground'
-        run: |
-          echo "playground.nikitisza.com" > dist/CNAME
-          printf 'User-agent: *\nDisallow: /\n' > dist/robots.txt
-
       # One commit on gh-pages, replaced on each deploy: the 100+ MB of images would otherwise pile up in history.
       - uses: peaceiris/actions-gh-pages@v4
         with:

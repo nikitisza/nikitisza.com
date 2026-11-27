@@ -1,4 +1,4 @@
-/* New design (playground): warm paper colours, Europa Nuova + Minion Pro, IBM Plex Mono labels.
+/* New design: warm paper colours, Europa Nuova + Minion Pro, IBM Plex Mono labels.
    Used by src/layouts/NewLayout.astro. The old pages keep using niki-design.css. */
 
 @font-face { font-family: 'Europa Nuova'; src: url(../fonts/6156cae3771c7b74fa12ee84_EuropaNuovaRegular.woff) format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
