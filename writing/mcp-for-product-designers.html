@@ -1,0 +1,143 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>AI MCP for Product Designers | Make your Figma design system machine-readable and MCP-enabled by Niki Tisza</title><meta name="description" content="The MCP Solution Explained"><meta property="og:title" content="AI MCP for Product Designers | Make your Figma design system machine-readable and MCP-enabled by Niki Tisza"><meta property="og:description" content="The MCP Solution Explained"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="google-site-verification" content="Dk6szGDapc-v3A7BjgN-AS29VyqQd7WiZtMLw_CLiak"><link rel="icon" href="/assets/images/favicon/favicon-32.png" type="image/png" sizes="32x32"><link rel="icon" href="/assets/images/favicon/favicon-256.png" type="image/png" sizes="256x256"><link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png"><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/writing/rss.xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap" rel="stylesheet"><link href="/assets/css/new-design.css" rel="stylesheet"><script>(function(){const GA_ID = "G-5ZTFNSGM61";
+
+      if (location.hostname === 'nikitisza.com' || location.hostname === 'www.nikitisza.com') {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+        document.head.appendChild(script);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('config', GA_ID, { anonymize_ip: false });
+      }
+    })();</script></head><body><div class="topbar"><span class="msg">New video: Please don't subscribe (I need something else)</span><a href="/writing/please-dont-subscribe-i-need-something-else">Watch →</a></div><nav class="nav" aria-label="Main"><a class="logo" href="/">nikitisza<span>.</span>com</a><span class="links"><a href="/about">About</a><a href="/writing" aria-current="page">Writing</a><a href="/sketchnotes">Sketchnotes</a><a href="/resources">Resources</a></span><a class="yt" href="https://www.youtube.com/channel/UCJQqF6pb2xj3yekYpc1QkZQ?sub_confirmation=1" target="_blank" rel="noopener"><svg viewBox="0 0 18 13" aria-hidden="true"><rect width="18" height="13" rx="3.5" fill="#e0563b"></rect><path d="M7 3.6v5.8L11.8 6.5z" fill="#fff"></path></svg>YouTube channel</a></nav><header class="article-head"><a class="textlink back" href="/writing">← All writing</a><p class="eyebrow">23 Nov 2025 · 8 min read</p><h1>AI MCP for Product Designers | Make your Figma design system machine-readable and MCP-enabled</h1><p class="lede">The MCP Solution Explained</p><svg class="squiggle" viewBox="0 0 560 12" preserveAspectRatio="none" aria-hidden="true"><path d="M0 6 Q 10 0 20 6 T 40 6 T 60 6 T 80 6 T 100 6 T 120 6 T 140 6 T 160 6 T 180 6 T 200 6 T 220 6 T 240 6 T 260 6 T 280 6 T 300 6 T 320 6 T 340 6 T 360 6 T 380 6 T 400 6 T 420 6 T 440 6 T 460 6 T 480 6 T 500 6 T 520 6 T 540 6 T 560 6" fill="none" stroke="#e0563b" stroke-width="2.5"></path></svg></header><article class="article"><figure style="padding-bottom:33.723653395784545%" class="w-richtext-align-normal w-richtext-figure-type-video"><div><iframe src="https://www.youtube.com/embed/QKn39e-WhFw" title="MCP for Product Designers: Make Figma Bulletproof (what to know about Model Context Protocol)" scrolling="no" frameborder="0" allowfullscreen="true"></iframe></div></figure>
+<p>You've just spent three days perfecting a new navigation component. </p>
+<p>Every state is documented. </p>
+<p>Every variant is labelled. </p>
+<p>You've written detailed specs, annotated your Figma file, and even recorded a quick video explaining the interaction patterns.</p>
+<p>You hand it off to your developer. </p>
+<p>They start building.</p>
+<p>Two weeks later, you're in staging, and the padding is wrong. </p>
+<p>The hover states don't match. </p>
+<p>The mobile breakpoint is using the wrong token. </p>
+<p>You ping your dev: "Hey, just a few quick tweaks..." But they're already three features deep into the next sprint.</p>
+<p><em>Sound familiar?</em></p>
+<p>This is the design-dev handoff we all know so well. And it's expensive; not just in terms of time, but also in context switching, relationship strain, and the slow erosion of your design system's integrity.</p>
+<p>We've been trying to solve a <em>“design-to-code translation/interpretation”</em> problem with better documentation. </p>
+<p><strong>What if the problem isn't our documentation at all?</strong> </p>
+<p>What if it's the fact that developers have to manually convert (build) our designs into code in the first place?</p>
+<h2 id="mcp-the-missing-link-in-your-workflow"><strong>MCP: The missing link in your workflow</strong></h2>
+<p>MCP (<a href="https://modelcontextprotocol.io/docs/getting-started/intro">Model Context Protocol</a>) is a new standard that enables AI agents to read and interpret the structured information in your design files, including components, properties, tokens, and documentation, and use that information to generate code, update systems, and bridge the gap between design and development.</p>
+<p>Basically, <strong>MCP teaches your design files to “speak developer.”</strong></p>
+<p>Not through better annotations or clearer specs, but by making the structure of your designs directly machine-readable. </p>
+<p>When your button component has clear variants, consistent naming, and proper tokens applied, MCP can expose all this information to AI coding tools, such as Claude Code, which can then generate the actual implementation (it codes your design).</p>
+<h2 id="the-real-problem-were-solving"><strong>The real problem we're solving</strong></h2>
+<p>Let's be honest about what actually happens during handoffs:</p>
+<p><strong>The documentation gap:</strong> You document 90% of the component. The developer implements based on that 90%. The missing 10% gets filled in with assumptions.</p>
+<p><strong>The translation/interpretation gap:</strong> Even when documentation is perfect, humans interpret things differently. Your "8px padding" might become "0.5rem" which renders as 7px on their setup.</p>
+<p><strong>The context gap:</strong> By the time bugs surface, you've moved on. The developer has moved on. Nobody remembers why that decision was made, and now fixing it requires archeology.</p>
+<p><strong>The momentum gap:</strong> Each back-and-forth conversation between design and dev adds days or weeks. Multiply that across dozens of components and hundreds of changes, and you're looking at months of accumulated delay.</p>
+<p>MCP doesn't eliminate these gaps entirely. </p>
+<p>But it shrinks them dramatically by removing one entire layer of human translation.</p>
+<h2 id="how-it-actually-works"><strong>How it actually works</strong></h2>
+<p>Here's the simplest way to think about MCP:</p>
+<p><strong>Traditional flow:</strong></p>
+<ol>
+<li>You design a component in Figma</li>
+<li>You write documentation explaining how it should work</li>
+<li>A developer reads your documentation</li>
+<li>They build their interpretation in code</li>
+<li>You QA and find mismatches</li>
+<li>Repeat steps 4-5 until it's right</li>
+</ol>
+<p><strong>MCP-enabled flow:</strong></p>
+<ol>
+<li>You design a component in Figma with clear structure</li>
+<li>MCP exposes that structure to AI tools</li>
+<li>AI generates code that matches your structure</li>
+<li>You and your dev review the generated code together</li>
+<li>You catch issues immediately while context is fresh</li>
+<li>You both iterate from the same source</li>
+</ol>
+<p>The key difference is that <strong>MCP moves the translation step earlier</strong>: from <em>"after the developer has already built it"</em> to <em>"right after you've designed it."</em></p>
+<h1 id="real-scenarios-where-mcp-changes-everything">Real scenarios where MCP changes everything</h1>
+<h2 id="scenario-1-building-a-new-feature">Scenario 1: Building a new feature</h2>
+<p>Your PM wants a new dashboard card component. You design it with three size variants (small, medium, large) and four states (default, hover, loading, error).</p>
+<p><strong><em>Without MCP:</em></strong> You document everything, hand it off, and three days later your dev asks "What spacing should I use between the icon and text?" You realize you forgot to specify it. Add another day.</p>
+<p><strong><em>With MCP:</em></strong> You design with proper auto layout. MCP reads your spacing, exposes it to the AI coding assistant, and generates the initial implementation in minutes. Your dev reviews it, you both spot the icon alignment issue immediately, and it's fixed in the same session.</p>
+<h2 id="scenario-2-updating-design-tokens">Scenario 2: Updating design tokens</h2>
+<p>Your brand refreshes. Primary blue changes from #0066CC to #0052A3. You need to update 47 components.</p>
+<p><strong><em>Without MCP:</em></strong> You update Figma. You update documentation. You update the design system site. Developers update their token files. Inevitably, some components get missed. You discover them three months later.</p>
+<p><strong><em>With MCP:</em></strong> You update your Figma token. MCP-connected tools can automatically detect the change, flag affected components, and help generate the code updates. Everyone works from the same source of truth.</p>
+<h2 id="scenario-3-qa-and-bug-fixes">Scenario 3: QA and bug fixes</h2>
+<p>You're reviewing a new feature in staging. The spacing feels off, but you can't quite tell why.</p>
+<p><strong><em>Without MCP:</em></strong> You take screenshots, measure with browser tools, compare to Figma, write up Jira tickets. Your dev investigates, realizes they used margin instead of padding. Fixed next sprint.</p>
+<p><strong><em>With MCP:</em></strong> Because the code was generated from your Figma structure, you can trace the issue back to the source immediately. Was it a design decision or a generation error? You know instantly and can fix it on the spot.</p>
+<h1 id="what-you-need-to-do-right-now">What you need to do right now</h1>
+<p>MCP is still emerging, but you can prepare your workflow today:</p>
+<h2 id="1-clean-up-your-component-structure">1. Clean up your component structure</h2>
+<p>Start thinking about your Figma components as data, not just visuals. That means:</p>
+<ul>
+<li>Consistent naming conventions across all components</li>
+<li>Proper use of variants (not separate components for every state)</li>
+<li>Tokens applied systematically, not hard-coded values</li>
+<li>Auto layout everywhere when it makes sense</li>
+</ul>
+<h2 id="2-document-with-machines-in-mind">2. Document with machines in mind</h2>
+<p>Your component descriptions should be structured and consistent. Instead of "This is a button that does stuff," try:</p>
+<ul>
+<li>Purpose: Primary action trigger</li>
+<li>Variants: Default, hover, active, disabled, loading</li>
+<li>Sizes: Small (32px), Medium (40px), Large (48px)</li>
+<li>Tokens: Uses surface-primary, text-inverse, border-radius-md</li>
+</ul>
+<h2 id="3-sync-with-your-dev-team-on-structure">3. Sync with your dev team on structure</h2>
+<p>Set up a 30-minute meeting with your developers. Ask:</p>
+<ul>
+<li>How do you currently handle design tokens?</li>
+<li>What information is most useful in handoff documentation?</li>
+<li>Where do things typically get lost in translation?</li>
+<li>How do you name components and variants in code?</li>
+</ul>
+<p>The goal is alignment. When MCP starts translating between your worlds, having similar mental models makes everything smoother.</p>
+<h2 id="4-start-small-with-one-component">4. Start small with one component</h2>
+<p>Pick your primary button component. Make it bulletproof:</p>
+<ul>
+<li>Every variant clearly defined</li>
+<li>All states documented</li>
+<li>Tokens properly applied</li>
+<li>Naming consistent</li>
+<li>Properties exposed and labeled</li>
+</ul>
+<p>Use this as your MCP-ready template. When MCP matures, you'll be ready to scale.</p>
+<h1 id="the-limitations">The limitations</h1>
+<p>MCP is great and all, but let’s be clear about what MCP doesn't do…<strong><em>yet:</em></strong></p>
+<ul>
+<li><strong>It doesn't understand design intent.</strong> MCP can read that your button has 16px of padding, but it can't know <em>why</em> you chose 16px or when to break that rule. Design reasoning still requires human judgment.</li>
+<li><strong>It's not magic.</strong> You still need well-structured components. Garbage in, garbage out. If your Figma file is messy, MCP can't fix that.</li>
+<li><strong>It's still early.</strong> Implementation varies by tool. Not everything is supported yet. You'll hit rough edges.</li>
+<li><strong>It requires buy-in from both sides.</strong> If your dev team isn't interested or your design files aren't structured, MCP won't help. <strong><em>This is a collaboration tool, not a replacement for collaboration.</em></strong></li>
+</ul>
+<h2 id="where-this-is-all-heading"><strong>Where this is all heading</strong></h2>
+<p>Right now, MCP mostly works in one direction: <strong><em>design artifacts to code.</em></strong> </p>
+<p>But the real transformation happens <strong>when</strong> it becomes bidirectional:</p>
+<ul>
+<li>Your production app automatically syncs back to your design system</li>
+<li>When a developer makes an emergency hotfix to adjust spacing, your Figma file updates to reflect reality</li>
+<li>When users trigger a state you didn't design for, your component library flags the gap</li>
+</ul>
+<p><strong>Your design system becomes a living reflection of what's actually shipped, not just what you intended to ship.</strong></p>
+<p>That's the future.</p>
+<p>And the designers and teams who start preparing now using clean structures &amp; conventions, and aligned processes, will be the ones ready to take advantage when that future arrives.</p>
+<h2 id="start-tomorrow"><strong>Start tomorrow</strong></h2>
+<p>You don't need to master MCP overnight; I’m still learning about it myself. </p>
+<p>But you can <strong><em>start making your design work more machine-readable</em></strong> tomorrow:</p>
+<ol>
+<li>Pick one component</li>
+<li>Clean up its structure</li>
+<li>Document it systematically</li>
+<li>Talk to a developer about what they need</li>
+</ol>
+<p>Do that, and you're already ahead of 95% of designers. Because the future of design-dev handoffs isn't about writing better documentation.</p>
+<p><strong>It's about making documentation obsolete.</strong></p>
+</article><section class="section"><h2 class="center">Keep <em>reading</em></h2><div class="cards"><a class="card" href="/writing/were-using-ai-to-build-products-nobody-wants"><span class="kicker">7 Sept 2025 · 7 min</span><h3>We’re Using AI to Build Products Nobody Wants</h3><p>How to prevent the product death cycle</p></a><a class="card" href="/writing/the-best-approach-to-design-critique"><span class="kicker">29 Apr 2025 · 3 min</span><h3>The Best Approach to Design Critique</h3><p>Tell me how you really feel</p></a><a class="card" href="/writing/i-asked-ai-how-to-monetize-my-youtube-channel-and-heres-what-it-said"><span class="kicker">12 Apr 2025 · 10 min</span><h3>I asked AI how to monetize my YouTube channel, and here’s what it said</h3><p>A practical plan that might actually work when you’re close to giving up</p></a></div><p class="more"><a class="textlink" href="/writing">All writing →</a></p></section><section class="newsletter"><div class="inner"><div><h2>Notes for designers <em>who want to grow</em></h2><p>Career moves, research, product, AI at work. Straight to your inbox.</p></div><div><a class="btn" href="https://nikitisza.substack.com/" target="_blank" rel="noopener">Subscribe</a></div></div></section><footer class="foot"><span>© Niki Tisza</span><span class="social"><a href="https://www.linkedin.com/in/nikitisza/" target="_blank" rel="noopener">LinkedIn</a><a href="https://nikitisza.medium.com/" target="_blank" rel="noopener">Medium</a><a href="https://www.instagram.com/itsmenikitisza" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/channel/UCJQqF6pb2xj3yekYpc1QkZQ?sub_confirmation=1" target="_blank" rel="noopener">YouTube</a><a href="https://nikitisza.substack.com/" target="_blank" rel="noopener">Newsletter</a><a href="https://nikitisza.gumroad.com/" target="_blank" rel="noopener">Gumroad shop</a></span></footer></body></html>
